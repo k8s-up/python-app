@@ -53,7 +53,7 @@ jobs:
             - name: Update image tag in YAML
               run: |
                 yq e '(.spec.template.spec.containers[] | select(.name == "python-app")).image = "ghcr.io/k8s-up/python-app:${{ env.VERSION }}"' -i dev/deployment-definition.yml
-            - run: cat dev/deployment-definition.yaml
+            - run: cat dev/deployment-definition.yml
             - name: Commit and push
               run: |
                 git config user.name "CI Bot"
