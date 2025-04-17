@@ -13,6 +13,11 @@ jobs:
               run: echo Hello GitLab
             - name: Checkout
               uses: actions/checkout@v4
+            - name: Install dependencies
+              run: pip install -r requirements.txt
+            - name: Run test
+              run: pytest
+              
             - name: Read version file
               run: echo "VERSION=$(cat VERSION)" >> $GITHUB_ENV
             - name: Log in to the Container registry
